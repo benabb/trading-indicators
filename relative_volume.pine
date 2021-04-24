@@ -1,0 +1,16 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © Stone Monkey https://discord.com/users/640496234636902410
+
+//@version=4
+study("Stone's Volume Indicator")
+
+avg_volume = sma(volume, 20)
+rvol = volume / avg_volume
+
+rel_volume = rvol - 1
+smooth = sma(rel_volume, 5)
+
+colorsss = rel_volume > 0.25 ? color.blue : color.gray
+plot(rel_volume, color=colorsss,style=plot.style_histogram, linewidth=6)
+plot(smooth, color=color.white, linewidth=1)
+

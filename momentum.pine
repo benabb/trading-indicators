@@ -1,0 +1,14 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © Stone's Momentum Indicator https://discord.com/users/640496234636902410
+
+//@version=4
+study("Stone's Momentum Indicator")
+atr = atr(20)
+baseline = ema(hlc3, 20)
+signal = ema(hlc3, 5)
+confirmation = ema(hlc3, 9)
+momentum = (signal - confirmation) / atr
+colorsss = momentum > 0.15 ? color.green : (momentum < -0.15 ? color.red : color.gray)
+plot(momentum, color=colorsss, linewidth=2)
+plot(1, color=color.white, linewidth=1)
+plot(-1, color=color.white, linewidth=1)

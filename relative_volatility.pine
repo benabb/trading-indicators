@@ -1,0 +1,14 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © Stone's Volatility Indicator https://discord.com/users/640496234636902410
+
+//@version=4
+study("Stone's Relative Volatility Indicator")
+atr = atr(20)
+trs = tr(true)
+
+rel_volatility = (trs / atr) - 1
+smooth = sma(rel_volatility, 5)
+
+coloring = rel_volatility > 0.1 ? color.orange : color.gray
+plot(rel_volatility, color=coloring,style=plot.style_histogram, linewidth=6)
+plot(smooth, color=color.white, linewidth=1)

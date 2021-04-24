@@ -1,0 +1,80 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © benabb
+
+//@version=4
+strategy(title="Stone's HUD - Chart Indicators", shorttitle="Stone's HUD", overlay=true)
+src = close
+x() => wma(hlc3, 5)
+y() => wma(hlc3, 20)
+daily_atr() => atr(20)
+d_close = security(syminfo.tickerid, 'D', close)
+d_high = security(syminfo.tickerid, 'D', high)
+d_low = security(syminfo.tickerid, 'D', low)
+d_atr = security(syminfo.tickerid, 'D', daily_atr())
+d_5ma = security(syminfo.tickerid, 'D', x())
+d_20ma = security(syminfo.tickerid, 'D', y())
+
+// Mean Reversion Spots by ATR extension
+up_atr = d_atr + d_close
+down_atr = d_close - d_atr
+plot(up_atr, color=#ffda05, transp=80)
+plot(down_atr, color=#ffda05, transp=80)
+
+intraday_vwap = vwap
+plot(intraday_vwap, color=#FFFFFF)
+
+plot(d_5ma, color=#2196f3, title="5DMA")
+plot(d_20ma, color=color.red, title="20DMA")
+
+short = wma(hlc3, 9)
+ 
+short_ma_color = hlc3 > short ? color.green : color.red
+
+plot(short, color=color.green, linewidth=1, title="9")
+
+//plot(hi, color=green, style=line, title="21", linewidth=1)
+//plot(lo, color=green, style=line, title="21", linewidth=1)
+
+//plot(trend, color=red, style=line, title="21", linewidth=2)
+//plot(trendt, color=black, style=line, title="23", linewidth=2)
+//plot(atr_up, color=yellow, style=line, title="21", linewidth=1)
+//plot(atr_down, color=yellow, style=line, title="23", linewidth=1)
+
+dd= hlc3-vwap
+id_atr = atr(10)
+// Mean reversions
+
+
+//plotshape(hlc3 > d_ma and crossover(vwap,d_ma), style=shape.diamond, location=location.bottom, text='LONG')
+
+//if(crossover(short,vwap))
+//    strategy.entry("UP", strategy.long, 1, when=(hlc3 > d_ma and hlc3 > short))
+//    strategy.exit("UP", stop=d_ma-d_atr, limit=(d_atr*5 + hlc3))
+    
+    
+//if(strategy.position_size > 0)
+//    if(crossunder(hlc3, short) and hlc3 > d_ma + d_atr)
+//        strategy.close_all()
+    
+
+//if(strategy.position_size > 0)
+    // Stretch profit taker
+//    if(crossover(high, atr_up) and l)
+//        strategy.close_all()
+    // Agressive profit taker
+//    if(crossunder(hi, trend))
+//        strategy.close_all()
+    
+    
+
+//if(close > (atr_up + atr) and close < hi)
+//    strategy.entry("Mean Revert", strategy.short, 100000)
+
+//if(strategy.position_size < 0)
+    // Stretch profit taker
+//    if(crossunder(low, atr_down))
+ //       strategy.close_all()
+    // Agressive profit taker
+//    if(crossover(hi, trend))
+//        strategy.close_all()
+    

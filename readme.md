@@ -6,9 +6,9 @@ I can help with YOUR custom indicators too. Contact me with your requirements fo
 
 ## tradingview.com indicators
 
-[RELATIVE RANGE](relative_volatility.pinescript)
+[RELATIVE RANGE](relative_volatility.pine)
 
-[RELATIVE VOLUME](relative_volume.pinescript)
+[RELATIVE VOLUME](relative_volume.pine)
 
 ## thinkorswim indicators 
 

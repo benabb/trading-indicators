@@ -12,7 +12,7 @@ I can help with YOUR custom indicators too. Contact me with your requirements fo
 
 ## thinkorswim indicators 
 
-[ATR EXTENSIONS](atr_extensions.thinkscript)
+[ATR EXTENSIONS](juno_atr_extensions.thinkscript)
 
 
 [ATR EXTENSIONS_ABS](atr_extensions_abs.thinkscript)

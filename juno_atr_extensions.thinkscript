@@ -1,0 +1,23 @@
+# How many atr multiples price is from the 10p ma ~~ made for Juno with love :*
+
+declare lower;
+
+input periods = 10;
+input averageType = AverageType.SIMPLE;
+input showLabel = yes;
+
+# Calculate the distance from the 10 period ma
+def ma = MovingAverage(averageType, close, periods);
+def ma_delta = close - ma;
+
+# Multiplier of how many atrps from moving average
+def atr = reference ATR(periods, averageType);
+def multiplier = ma_delta / atr;
+
+# Plot it for charting
+plot ATR_EXT = multiplier;
+
+# Hide by default
+ATR_EXT.hide();
+
+AddLabel(showLabel, "ATRs from MA: " + Round(multiplier, 2) +"  ", Color.YELLOW);

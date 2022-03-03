@@ -15,3 +15,4 @@ I can help with YOUR custom indicators too. Contact me with your requirements fo
 [ATR EXTENSIONS](atr_extensions.thinkscript)
 
 
+[ATR EXTENSIONS_ABS](atr_extensions_abs.thinkscript)

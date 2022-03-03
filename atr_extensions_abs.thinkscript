@@ -1,0 +1,37 @@
+# ATR extensions from MA with upside/absolute downside values on seperate plots
+
+declare lower;
+
+input periods = 10;
+input averageType = AverageType.SIMPLE;
+input showLabel = yes;
+input absLabel = no;
+
+# Distance from moving average
+def ma = MovingAverage(averageType, close, periods);
+def ma_delta = close - ma;
+
+# Multiplier of how many atrs from moving average
+def atr = reference ATR(periods, averageType);
+def multiplier = ma_delta / atr;
+
+# Plot it 
+plot ATR_EXT = multiplier;
+
+# Plot upside extensions seperately
+plot UPSIDE_EXT = if multiplier > 0 
+then multiplier else 0;
+# Hide by default
+UPSIDE_EXT.hide();
+
+# Plot absolute downside extensions seperately
+plot DOWNSIDE_EX = if multiplier < 0 
+then AbsValue(multiplier) else 0;
+# Hide by default
+DOWNSIDE_EX.hide();
+
+# Show label as absolute value
+def label = if absLabel == yes then AbsValue(multiplier)
+else multiplier;
+
+AddLabel(showLabel, "ATRX("+periods+") = "+Round(label, 2) + "  ", Color.YELLOW);

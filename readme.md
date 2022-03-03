@@ -1,28 +1,17 @@
-### Custom tradingview indicators 
+# Custom Trading Indicators for Charting Platforms
 
-These are the indicators I use in my trading system to simplify the process of trading. 
+These are some of the indicators I wrote to use in my trading, or wrote for friends to use in theirs!
 
-In my world there are three basic components of price action (volume, volatility and momentum) and I have distilled the elements of each into their own indicators, which I use for filtering for potential oportunities. 
+I can help with YOUR custom indicators too. Contact me with your requirements for a quote, I would be happy to help!
 
-I also rely on a combination of the following techical tools, all of which are rolled up in my HUD tradingview strategy,
-- vwap (intraday, anchored)
-- moving averages (weighted, hlc3)
-- daily chart key technical levels
-- recent intraday technical levels
-- ATR extensions
+## tradingview.com indicators
 
-Try them out on tradingview
+[RELATIVE RANGE](relative_volatility.pinescript)
 
-##### Volatility (Relative Volatility)
-???
+[RELATIVE VOLUME](relative_volume.pinescript)
 
-##### Volume (Relative Volume)
-???
+## thinkorswim indicators 
 
+[ATR EXTENSIONS](atr_extensions.thinkscript)
 
-##### Momentum & Trend
-???
-
-##### HUD 
-???
 
